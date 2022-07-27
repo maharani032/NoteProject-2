@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    tools:context=".UpdateActivity">
+
+    <EditText
+        android:id="@+id/editTextTitleUpdate"
+        style="@android:style/Widget.Holo.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="7dp"
+        android:ems="10"
+        android:hint="Enter Note Title"
+        android:includeFontPadding="true"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:singleLine="true"
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColorHint="#757575"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/editTextDescriptionUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginVertical="7dp"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="Enter Note"
+        android:inputType="textMultiLine"
+        android:nestedScrollingEnabled="true"
+        android:importantForAutofill="no" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:padding="7dp">
+
+        <Button
+            android:id="@+id/buttonCancelUpdate"
+            style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="7dp"
+            android:layout_weight="1"
+            android:backgroundTint="#E8DAFF"
+            android:ellipsize="none"
+            android:text="CANCEL"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:icon="@android:drawable/ic_menu_close_clear_cancel"
+            app:iconGravity="start"
+            app:iconSize="30dp"
+            app:iconTintMode="src_in" />
+
+        <Button
+            android:id="@+id/buttonSaveUpdate"
+            style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="7dp"
+            android:layout_weight="1"
+            android:backgroundTint="#E8DAFF"
+            android:text="SAVE"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#5C6BC0"
+            app:icon="@android:drawable/ic_menu_save"
+            app:iconGravity="start"
+            app:iconSize="30dp"
+            app:iconTintMode="src_atop" />
+    </LinearLayout>
+
+</LinearLayout>
