@@ -56,17 +56,14 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Note deleted", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
-        adapter.setOnItemClickListener(new NoteAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(Note note) {
-                Intent intent= new Intent(MainActivity.this,UpdateActivity.class);
-                intent.putExtra("id",note.getId());
-                intent.putExtra("title",note.getTitle());
-                intent.putExtra("description",note.getDescription());
+        adapter.setOnItemClickListener(note -> {
+            Intent intent= new Intent(MainActivity.this,UpdateActivity.class);
+            intent.putExtra("id",note.getId());
+            intent.putExtra("title",note.getTitle());
+            intent.putExtra("description",note.getDescription());
 
 //                activity for update
-                activityResultLauncherForUpdateNote.launch(intent);
-            }
+            activityResultLauncherForUpdateNote.launch(intent);
         });
     }
 
@@ -92,6 +89,18 @@ public class MainActivity extends AppCompatActivity {
                 .StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
             public void onActivityResult(ActivityResult result) {
+                int resultCode=result.getResultCode();
+                Intent data=result.getData();
+                if (resultCode==RESULT_OK && data!=null){
+                    String title=data.getStringExtra("titleLast");
+                    String description=data.getStringExtra("descriptionLast");
+                    int id=data.getIntExtra("noteId",-1);
+
+                    Note note=new Note(title,description);
+                    note.setId(id);
+                    noteViewModel.update(note);
+
+                }
 
             }
         });
